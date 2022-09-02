@@ -32,7 +32,7 @@ fn spice_to_mtx(path: &str) {
     }
     let out = File::create(target_path).unwrap();
     let mut writer = BufWriter::new(out);
-    writer.write_all(format!("{} {} {}\n", nodes.len(), nodes.len(), edges.len()).as_bytes()).unwrap();
+    writer.write_all(format!("{} {} {}\n", nodes.len(), nodes.len(), edges.len() * 2).as_bytes()).unwrap();
     for (f, t, w) in edges {
         writer.write_all(format!("{f} {t} {w}\n").as_bytes()).unwrap();
         writer.write_all(format!("{t} {f} {w}\n").as_bytes()).unwrap();
